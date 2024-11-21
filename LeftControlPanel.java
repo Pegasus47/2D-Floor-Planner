@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class LeftControlPanel extends JPanel {
@@ -7,8 +9,10 @@ public class LeftControlPanel extends JPanel {
     private final ImageIcon objectsIcon;
     private final ImageIcon shareIcon;
     private final ImageIcon helpIcon;
+    private final MainControlPanel mainControlPanel;
 
-    public LeftControlPanel() {
+    public LeftControlPanel(MainControlPanel mainPanel) {
+        this.mainControlPanel = mainPanel;
         setBackground(new Color(255, 194, 74)); // Panel background color
         setPreferredSize(new Dimension(85, 500)); // Fixed width
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS)); // Vertical layout
@@ -30,12 +34,24 @@ public class LeftControlPanel extends JPanel {
 
         CustomButton2 buildButton = new CustomButton2("Build", buildIcon);
         buildButton.setAlignmentX(CENTER_ALIGNMENT);
+        buildButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                mainControlPanel.resetToMainView();
+            }
+        });
         add(buildButton);
 
         add(Box.createVerticalStrut(10)); // Spacer
 
         CustomButton2 objectsButton = new CustomButton2("Objects", objectsIcon);
         objectsButton.setAlignmentX(CENTER_ALIGNMENT);
+        objectsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                mainControlPanel.showObjectsGrid();
+            }
+        });
         add(objectsButton);
 
         add(Box.createVerticalStrut(10)); // Spacer

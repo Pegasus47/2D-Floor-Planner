@@ -23,9 +23,9 @@ public class MainControlPanel extends JPanel {
 
     public MainControlPanel(CanvasPanel canvas) {
         this.canvasPanel = canvas;
-        setBackground(new Color(255, 194, 74)); 
+        setBackground(new Color(255, 194, 74));
         setPreferredSize(new Dimension(210, 700));
-        setOpaque(false); 
+        setOpaque(false);
         setLayout(null);
 
         //save all the images to be used
@@ -89,9 +89,9 @@ public class MainControlPanel extends JPanel {
         });
 
         buttonPanel = new JPanel();
-        buttonPanel.setLayout(null); 
+        buttonPanel.setLayout(null);
         buttonPanel.setBounds(10, 250, 200, 0);
-        buttonPanel.setBackground(new Color(255, 194, 74)); 
+        buttonPanel.setBackground(new Color(255, 194, 74));
 
         add(addWall);
         add(placeDoor);
@@ -110,7 +110,7 @@ public class MainControlPanel extends JPanel {
             addRoom.setIcon(scaledIcon);
 
             CustomButton bedroom = new CustomButton("Bedroom", scaleIcon(bedroomColor, 16, 16)); // Rescale icon
-            bedroom.setBounds(10, 0, 150, 30); 
+            bedroom.setBounds(10, 0, 150, 30);
             bedroom.setHorizontalTextPosition(SwingConstants.LEFT);
             bedroom.setIconTextGap(10);
             buttonPanel.add(bedroom);
@@ -136,7 +136,7 @@ public class MainControlPanel extends JPanel {
             });
 
             CustomButton livingRoom = new CustomButton("Living Room", scaleIcon(livingColor, 16, 16));
-            livingRoom.setBounds(10, 80, 150, 30); 
+            livingRoom.setBounds(10, 80, 150, 30);
             livingRoom.setHorizontalTextPosition(SwingConstants.LEFT);
             livingRoom.setIconTextGap(10);
             buttonPanel.add(livingRoom);
@@ -181,7 +181,7 @@ public class MainControlPanel extends JPanel {
             addRoom.setText("Add Room");
             ImageIcon scaledIcon = scaleIcon(rightArrow, 16, 16); // Use scaled right arrow icon
             addRoom.setIcon(scaledIcon);
-        
+
 
             // Collapse dropdown
             buttonPanel.setBounds(10, 250, 200, 0);
@@ -217,3 +217,4 @@ public class MainControlPanel extends JPanel {
         g2d.dispose();
     }
 }
+

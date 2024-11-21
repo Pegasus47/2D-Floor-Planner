@@ -114,10 +114,9 @@ public class CanvasPanel extends JPanel {
     }
 
 
-    private boolean isOverlapping(Rectangle newRectangle) {
+    public boolean isOverlapping(Rectangle newRectangle) {
         for (Rooms room : rooms) {
             Rectangle existingRectangle = room.rectangle;
-
             // Check for any intersection or containment
             if (existingRectangle.intersects(newRectangle) ||
                     existingRectangle.contains(newRectangle) ||
@@ -144,6 +143,12 @@ public class CanvasPanel extends JPanel {
             return Color.GRAY; // Default color
         }
     }
+    public void setRooms(ArrayList<Rooms> newRooms) {
+        this.rooms.clear(); // Clear the existing rooms
+        this.rooms.addAll(newRooms); // Add all the loaded rooms
+        repaint(); // Refresh the canvas to show updated rooms
+    }
+
 
     @Override
     protected void paintComponent(Graphics g) {

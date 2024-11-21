@@ -150,8 +150,8 @@ public class CanvasPanel extends JPanel {
 
 
     private Point snapToGrid(Point p) {
-        int x = (p.x / GRID_SIZE) * GRID_SIZE;
-        int y = (p.y / GRID_SIZE) * GRID_SIZE;
+        int x = Math.round((float)p.x / (float)GRID_SIZE) * GRID_SIZE;
+        int y = Math.round((float)p.y / (float)GRID_SIZE) * GRID_SIZE;
         return new Point(x, y);
     }
 

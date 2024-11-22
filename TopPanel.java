@@ -2,18 +2,26 @@ import java.awt.*;
 import javax.swing.*;
 
 public class TopPanel extends JPanel {
+    ImageIcon saveIcon;
+
     public TopPanel() {
-        setBackground(new Color(255, 193, 7)); // Yellow-orange color
-        setPreferredSize(new Dimension(0, 50)); // Fixed height
+        setBackground(new Color(254, 169, 3)); // Yellow-orange color
+        setPreferredSize(new Dimension(0, 70)); // Fixed height
         setLayout(new BorderLayout());
 
         // Add components
+        JLabel proJLabel = new JLabel("Project");
+        proJLabel.setFont(new Font("Arial", Font.BOLD, 10));
+        proJLabel.setHorizontalAlignment(SwingConstants.CENTER);
         JLabel projectLabel = new JLabel("Floor Plan Example 1");
-        projectLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        projectLabel.setFont(new Font("Arial", Font.BOLD, 22));
         projectLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
-        JButton saveButton = new JButton("Save");
+        saveIcon = new ImageIcon("save.png");
+        CustomButton2 saveButton = new CustomButton2("Save", saveIcon);
+        saveButton.setMargin(new Insets(0, 0, 0, 60));
 
+        //add(proJLabel, BorderLayout.NORTH);
         add(projectLabel, BorderLayout.CENTER);
         add(saveButton, BorderLayout.EAST);
     }

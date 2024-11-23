@@ -1,31 +1,33 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class CustomButton extends JButton {
+public class CustomButton2 extends JButton {
 
-    private final Color backgroundColor = new Color(239, 163, 15); // Button background color
-    private final Color borderColor = new Color(239, 163, 15); // Button border color
+    private final Color backgroundColor = new Color(254, 169, 3); // Button background color
+    private final Color borderColor = new Color(254, 169, 3); // Button border color
     private final int arcSize = 20; // Corner radius
 
     // Constructor for text-only button
-    public CustomButton(String text) {
+    public CustomButton2(String text) {
         this(text, null); // Delegate to the constructor with text and image
     }
 
     // Constructor for text and image button
-    public CustomButton(String text, ImageIcon imageIcon) {
+    public CustomButton2(String text, ImageIcon imageIcon) {
         super(text);
-        setContentAreaFilled(false); 
-        setFocusPainted(false); 
-        setBorderPainted(false); 
-        setFont(new Font("Arial", Font.PLAIN, 15)); 
-        
+        setContentAreaFilled(false);
+        setFocusPainted(false);
+        setBorderPainted(false);
+        setFont(new Font("Arial", Font.PLAIN, 11));
+
         if (imageIcon != null) {
-            setIcon(resizeIcon(imageIcon, 20, 20)); // Resize icon to desired size
-            setHorizontalTextPosition(SwingConstants.LEFT);
-            setHorizontalAlignment(SwingConstants.RIGHT); 
-            setVerticalTextPosition(SwingConstants.CENTER);  // Default: center alignment
-            setIconTextGap(10); // Default gap between icon and text
+            setIcon(resizeIcon(imageIcon, 30, 30)); // Resize icon to desired size
+            // Position the icon above the text
+            setHorizontalTextPosition(SwingConstants.CENTER);
+            setVerticalTextPosition(SwingConstants.BOTTOM);
+            setHorizontalAlignment(SwingConstants.CENTER);
+            setVerticalAlignment(SwingConstants.CENTER);
+            setIconTextGap(5); // Gap between the icon and the text
         }
     }
 
@@ -50,7 +52,7 @@ public class CustomButton extends JButton {
     @Override
     protected void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g.create();
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON); 
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         // Draw button background with rounded corners
         g2d.setColor(backgroundColor);
